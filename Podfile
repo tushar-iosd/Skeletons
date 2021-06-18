@@ -8,4 +8,6 @@ target 'iOS Skeleton' do
   # Pods for iOS Skeleton
 
 pod 'Alamofire'
+ pod 'RxSwift'
+  pod 'RxCocoa'
 end
