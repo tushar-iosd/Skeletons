@@ -20,7 +20,7 @@ struct Constants {
     
     
     struct RelativeURLPath {
-        static let serverURL = ""
+        static let serverURL = "https://jsonplaceholder.typicode.com/"
         static let randomList = "/posts/1/comments"
         
     }

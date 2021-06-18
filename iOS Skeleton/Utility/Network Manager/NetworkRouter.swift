@@ -17,11 +17,10 @@ enum NetworkRouter : URLRequestConvertible {
             return .get
         }
     }
-    
     var relativeURL: String {
         switch self {
         case .RandomList:
-            return "http://worldtimeapi.org/api/timezone/America/Argentina/Salta"
+            return Constants.RelativeURLPath.serverURL
         }
     }
     
@@ -31,6 +30,7 @@ enum NetworkRouter : URLRequestConvertible {
             return randomListParam
         }
     }
+    
     func asURLRequest() throws -> URLRequest {
         let urlString: String = Constants.RelativeURLPath.serverURL + relativeURL
         let completeURL = URL.init(string: urlString)
