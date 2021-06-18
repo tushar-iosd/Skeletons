@@ -1,0 +1,12 @@
+
+/*
+
+Commit 1
+* MVVM Structure intergrated
+* Alamofire added
+*Utiltiy file added
+*Common set Root view controller added
+* UIStoryboard extension added to navigate
+*Network Manager to manage API calls 
+
+*/

@@ -1,0 +1,6 @@
+framework module Pods_iOS_Skeleton {
+  umbrella header "Pods-iOS Skeleton-umbrella.h"
+
+  export *
+  module * { export * }
+}

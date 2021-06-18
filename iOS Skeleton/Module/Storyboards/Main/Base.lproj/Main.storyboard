@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginViewController" customModule="iOS_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9En-Pe-l07">
+                                <rect key="frame" x="72.5" y="476" width="269" height="44.5"/>
+                                <color key="backgroundColor" red="0.89357650280000001" green="0.88994127509999998" blue="0.88303607699999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GAf-X0-Sju"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yvQ-ab-KY2">
+                                <rect key="frame" x="72.5" y="401" width="269" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccb-FE-qyc">
+                                <rect key="frame" x="72.5" y="326.5" width="269" height="44.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="yvQ-ab-KY2" firstAttribute="top" secondItem="ccb-FE-qyc" secondAttribute="bottom" constant="30" id="1eo-7G-oLw"/>
+                            <constraint firstItem="9En-Pe-l07" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5DW-VK-5XV"/>
+                            <constraint firstItem="9En-Pe-l07" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="Dz5-8e-u5r"/>
+                            <constraint firstItem="9En-Pe-l07" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.1" id="Gcs-mf-Iec"/>
+                            <constraint firstItem="ccb-FE-qyc" firstAttribute="height" secondItem="yvQ-ab-KY2" secondAttribute="height" id="HAs-cF-U7t"/>
+                            <constraint firstItem="9En-Pe-l07" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.65" id="Zwi-ax-R0L"/>
+                            <constraint firstItem="yvQ-ab-KY2" firstAttribute="width" secondItem="9En-Pe-l07" secondAttribute="width" id="ek4-Y4-EYx"/>
+                            <constraint firstItem="ccb-FE-qyc" firstAttribute="width" secondItem="yvQ-ab-KY2" secondAttribute="width" id="geM-jw-W5N"/>
+                            <constraint firstItem="yvQ-ab-KY2" firstAttribute="height" secondItem="9En-Pe-l07" secondAttribute="height" id="lh7-xt-Rcg"/>
+                            <constraint firstItem="9En-Pe-l07" firstAttribute="top" secondItem="yvQ-ab-KY2" secondAttribute="bottom" constant="30" id="sIx-db-HcZ"/>
+                            <constraint firstItem="ccb-FE-qyc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vtO-vq-xIE"/>
+                            <constraint firstItem="yvQ-ab-KY2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wIn-R0-s8U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTF" destination="ccb-FE-qyc" id="8ia-xz-x82"/>
+                        <outlet property="loginBtn" destination="9En-Pe-l07" id="Kdx-uX-ykd"/>
+                        <outlet property="passTF" destination="yvQ-ab-KY2" id="xM1-Ps-Kcx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="72"/>
+        </scene>
+        <!--Dashboard View Controller-->
+        <scene sceneID="fd4-6a-n1p">
+            <objects>
+                <viewController storyboardIdentifier="DashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lBB-Vd-M2q" customClass="DashboardViewController" customModule="iOS_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NXK-0Y-O6S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GGA-ZB-aI0"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sKP-8W-YrW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="79"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="on9-uN-fpT">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kA4-NO-L03" customClass="ProfileViewController" customModule="iOS_Skeleton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D7p-ph-Dgg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ae4-n9-GjJ"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rRR-8o-cUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1338" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
