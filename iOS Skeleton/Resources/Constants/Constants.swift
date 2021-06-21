@@ -16,6 +16,7 @@ struct Constants {
     struct StoryboardName {
         static let main     =   UIStoryboard.init(name: "Main", bundle: nil)
         static let mainStoryBoard = "Main"
+        static let secondModuleStoryboard = UIStoryboard.init(name: "SecondModule", bundle: nil) 
     }
     
     
