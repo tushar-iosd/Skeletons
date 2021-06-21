@@ -8,11 +8,13 @@
 import UIKit
 
 struct Food {
-    let name: String
-    let imageName: String
+    var name: String
+    var imageName: String
+    var favItem: Bool
     
-    init(name: String, imageName: String) {
+    init(name: String, imageName: String, favItem: Bool) {
         self.name = name
         self.imageName = imageName
+        self.favItem = favItem
     }
 }

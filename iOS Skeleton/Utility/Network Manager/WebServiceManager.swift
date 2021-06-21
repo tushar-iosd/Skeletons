@@ -11,7 +11,6 @@ class WebServiceManager {
     private init(){}
     // MARK:  Property
     static let shared = WebServiceManager()
-    
     func callRandomListApi(for parameters: JSONDictionary, successClosure: @escaping booleanClosure,
                       failureClosure: @escaping apiCallFailureClosure) {
         NetworkManager.shared.startRequest(NetworkRouter.RandomList(parameters)) { (success, data, error) in
@@ -20,11 +19,9 @@ class WebServiceManager {
             } else {
                 if let localError = error {
                     debugPrint(localError)
-                    
                     failureClosure(localError)
                 }
             }
         }
-        
     }
 }

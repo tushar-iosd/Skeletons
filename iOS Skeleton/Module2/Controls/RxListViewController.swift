@@ -10,20 +10,29 @@ import RxSwift
 import RxCocoa
 class RxListViewController: UIViewController, UITableViewDelegate {
 
+    //RX List view Model
+    let rxListVM = RxListViewModel()
+    
+    //String array in Observable type
     let contentItems = Observable.just(["Item1", "Item2", "Items3"])
-    let foodItems = Observable.just([Food.init(name: "Pizza", imageName: "pizza"), Food.init(name: "Burger", imageName: "burger"),
-        Food.init(name: "Dosa", imageName: "dosa"),Food.init(name: "Paratha", imageName: "paratha")])
+    //Food (Custom class) array in Observable type (Initialised)
+    var foodItems = Observable.just([Food.init(name: "Pizza", imageName: "pizza", favItem: true), Food.init(name: "Burger", imageName: "burger", favItem: false),
+        Food.init(name: "Dosa", imageName: "dosa", favItem: true),Food.init(name: "Paratha", imageName: "paratha", favItem: false)])
+    //Dispose Bag
     let disposeBag = DisposeBag()
+    
+    /* IBOutlets*/
     @IBOutlet weak var contentTableView: UITableView!
+    
+    /* View Life cycle methods*/
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Menu"
+        // Do any additional setup after loading the view.
         contentTableView.delegate = self
         bindTableWithCustomCell()
-        // Do any additional setup after loading the view.
     }
     
-    
+    /// A simple table view binding example
     func bindTable(){
         contentItems.bind(to: contentTableView
                             .rx
@@ -34,6 +43,7 @@ class RxListViewController: UIViewController, UITableViewDelegate {
     }
     
     
+    /// Binding a table view with data array || selection of table view cell
     func bindTableWithCustomCell(){
         
         //Bind the Food items
@@ -41,30 +51,42 @@ class RxListViewController: UIViewController, UITableViewDelegate {
                             .items(cellIdentifier: "contentCell",cellType: FoodItemTableViewCell.self)){
             (tableview, tableViewItem, cell) in
             cell.selectionStyle = .none
+            if tableViewItem.favItem {
+                cell.backgroundColor = .green
+            } else {
+                cell.backgroundColor = .red
+            }
             cell.foodNameLbl.text = tableViewItem.name
             cell.foodItemImageView.image = UIImage.init(named: tableViewItem.imageName)
             cell.foodItemImageView.contentMode = .scaleAspectFit
         }.disposed(by: disposeBag)
         
+        
+        // userNameTF.rx.text.map{ $0 ?? "" }.bind(to: loginVM.userNameTextPublishSubject).disposed(by: disposeBag)
+       // loginVM.isValid().bind(to: loginBtn.rx.isEnabled).disposed(by: disposeBag)
+        
         //Model selection
-       contentTableView.rx.modelSelected(Food.self)
+      contentTableView.rx.modelSelected(Food.self)
             .subscribe(onNext: {
                 foodObject in
-                print("Itemselected", foodObject.name)
-                if let listViewObj: ModuleTwoLogin = Constants.StoryboardName.secondModuleStoryboard.instantiateViewController() {
-                   self.navigationController?.pushViewController(listViewObj, animated: true)
-                }
+         if let foodItemDescVCObj: FoodItemDescription = Constants.StoryboardName.secondModuleStoryboard.instantiateViewController() {            foodItemDescVCObj.labelText = foodObject.name
+            foodItemDescVCObj.imageName = foodObject.imageName
+            self.navigationController?.pushViewController(foodItemDescVCObj, animated: true)
+         }
+            
             }).disposed(by: disposeBag)
         
-        
-        /*
         //index path selection (did select method)
-        contentTableView.rx.itemSelected.subscribe(onNext: {
+   /*   contentTableView.rx.itemSelected.subscribe(onNext: {
             indexPath in
-            if let listViewObj: ModuleTwoLogin = Constants.StoryboardName.secondModuleStoryboard.instantiateViewController() {
-               self.navigationController?.pushViewController(listViewObj, animated: true)
-            }
+        self.contentTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
+            
         }).disposed(by: disposeBag)*/
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+}
 
+class RxListViewModel {
 }
