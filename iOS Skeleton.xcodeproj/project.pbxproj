@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7801511526807DDB002054DF /* ModuleTwoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801511426807DDB002054DF /* ModuleTwoLogin.swift */; };
+		7801511A26807E0B002054DF /* SecondModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7801511926807E0B002054DF /* SecondModule.storyboard */; };
 		78055BFD267D045C001662B6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78055BFC267D045C001662B6 /* UIViewController.swift */; };
 		78E2A58A26676F7B004CFBF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2A58926676F7B004CFBF0 /* AppDelegate.swift */; };
 		78E2A58C26676F7C004CFBF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2A58B26676F7C004CFBF0 /* SceneDelegate.swift */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		5CA5CA72CF03367A72DD4460 /* Pods-iOS Skeleton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Skeleton.debug.xcconfig"; path = "Target Support Files/Pods-iOS Skeleton/Pods-iOS Skeleton.debug.xcconfig"; sourceTree = "<group>"; };
+		7801511426807DDB002054DF /* ModuleTwoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleTwoLogin.swift; sourceTree = "<group>"; };
+		7801511926807E0B002054DF /* SecondModule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondModule.storyboard; sourceTree = "<group>"; };
 		78055BFC267D045C001662B6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		78E2A58626676F7B004CFBF0 /* iOS Skeleton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Skeleton.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E2A58926676F7B004CFBF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7801511326807DC2002054DF /* Module2 */ = {
+			isa = PBXGroup;
+			children = (
+				7801511826807DF2002054DF /* Controls */,
+				7801511726807DE9002054DF /* Storyboards */,
+			);
+			path = Module2;
+			sourceTree = "<group>";
+		};
+		7801511726807DE9002054DF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7801511926807E0B002054DF /* SecondModule.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		7801511826807DF2002054DF /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				7801511426807DDB002054DF /* ModuleTwoLogin.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		78AB4A4BC4C4EE4AD35D9D76 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +137,8 @@
 			children = (
 				78E2A58926676F7B004CFBF0 /* AppDelegate.swift */,
 				78E2A58B26676F7C004CFBF0 /* SceneDelegate.swift */,
-				78E2A59F26676FEB004CFBF0 /* Module */,
+				78E2A59F26676FEB004CFBF0 /* Module1 */,
+				7801511326807DC2002054DF /* Module2 */,
 				78E2A5A526677040004CFBF0 /* Utility */,
 				78E2A5A426677038004CFBF0 /* Resources */,
 				78E2A59726676F81004CFBF0 /* Info.plist */,
@@ -116,7 +146,7 @@
 			path = "iOS Skeleton";
 			sourceTree = "<group>";
 		};
-		78E2A59F26676FEB004CFBF0 /* Module */ = {
+		78E2A59F26676FEB004CFBF0 /* Module1 */ = {
 			isa = PBXGroup;
 			children = (
 				78E2A5A32667702B004CFBF0 /* Storyboards */,
@@ -125,7 +155,7 @@
 				78E2A5A12667701C004CFBF0 /* View */,
 				78E2A5A026677010004CFBF0 /* Controls */,
 			);
-			path = Module;
+			path = Module1;
 			sourceTree = "<group>";
 		};
 		78E2A5A026677010004CFBF0 /* Controls */ = {
@@ -301,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7801511A26807E0B002054DF /* SecondModule.storyboard in Resources */,
 				78E2A59626676F81004CFBF0 /* LaunchScreen.storyboard in Resources */,
 				78E2A59326676F81004CFBF0 /* Assets.xcassets in Resources */,
 				78E2A59126676F7C004CFBF0 /* Main.storyboard in Resources */,
@@ -369,6 +400,7 @@
 				78E2A5E82668AC49004CFBF0 /* WebServiceManager.swift in Sources */,
 				78F9B6B8267BB6EF0089A57E /* Helper.swift in Sources */,
 				78F9B6BE267BE4AA0089A57E /* ProfileViewController.swift in Sources */,
+				7801511526807DDB002054DF /* ModuleTwoLogin.swift in Sources */,
 				78E2A58C26676F7C004CFBF0 /* SceneDelegate.swift in Sources */,
 				78055BFD267D045C001662B6 /* UIViewController.swift in Sources */,
 				78E2A5A826677054004CFBF0 /* Constants.swift in Sources */,

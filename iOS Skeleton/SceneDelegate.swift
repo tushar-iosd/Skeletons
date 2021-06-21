@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        // DashboardViewController().setRootViewController(storyBoard: "Main")
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        LoginViewController().setRootViewController(storyBoard: "Main")
+        ModuleTwoLogin().setRootViewController(storyBoard: "SecondModule")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
