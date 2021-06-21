@@ -13,7 +13,9 @@ class ModuleTwoLogin: UIViewController {
     private let loginVM = LoginViewModel()
     private let disposeBag = DisposeBag()
     
-    @IBOutlet weak var userNameTF: 
+    @IBOutlet weak var userNameTF: UITextField!
+    @IBOutlet weak var passTF: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
         override func viewDidLoad() {
             super.viewDidLoad()
             setBinding()
@@ -22,10 +24,7 @@ class ModuleTwoLogin: UIViewController {
         }
         
         func setBinding(){
-            userNameTF.rx.text.maUITextField!
-    @IBOutlet weak var passTF: UITextField!
-    @IBOutlet weak var loginBtn: UIButton!
-    p { $0 ?? "" }.bind(to: loginVM.userNameTextPublishSubject).disposed(by: disposeBag)
+            userNameTF.rx.text.map{ $0 ?? "" }.bind(to: loginVM.userNameTextPublishSubject).disposed(by: disposeBag)
         passTF.rx.text.map { $0 ?? "" }.bind(to: loginVM.passwordTextPublishSubject).disposed(by: disposeBag)
         loginVM.isValid().bind(to: loginBtn.rx.isEnabled).disposed(by: disposeBag)
         loginVM.isValid().map{$0 ? 1 : 0.1}.bind(to: loginBtn.rx.alpha).disposed(by: disposeBag)
