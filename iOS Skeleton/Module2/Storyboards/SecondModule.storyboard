@@ -90,13 +90,38 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" id="Eah-7w-UJ9">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FoodItemTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="55" id="Eah-7w-UJ9" customClass="FoodItemTableViewCell" customModule="iOS_Skeleton" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eah-7w-UJ9" id="dpX-uG-tQR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTH-34-u0W">
+                                                    <rect key="frame" x="20" y="0.0" width="124" height="55"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l3L-en-Zid">
+                                                    <rect key="frame" x="164" y="0.0" width="414" height="55"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="l3L-en-Zid" firstAttribute="width" secondItem="dpX-uG-tQR" secondAttribute="width" id="7S2-Sv-oen"/>
+                                                <constraint firstAttribute="bottom" secondItem="l3L-en-Zid" secondAttribute="bottom" id="OhT-si-kTY"/>
+                                                <constraint firstItem="vTH-34-u0W" firstAttribute="top" secondItem="dpX-uG-tQR" secondAttribute="top" id="Pw0-HS-OHo"/>
+                                                <constraint firstItem="l3L-en-Zid" firstAttribute="top" secondItem="dpX-uG-tQR" secondAttribute="top" id="RpM-CB-Is0"/>
+                                                <constraint firstItem="vTH-34-u0W" firstAttribute="width" secondItem="dpX-uG-tQR" secondAttribute="width" multiplier="0.3" id="WWA-Zl-ASz"/>
+                                                <constraint firstAttribute="bottom" secondItem="vTH-34-u0W" secondAttribute="bottom" id="Xrr-6c-CRc"/>
+                                                <constraint firstItem="vTH-34-u0W" firstAttribute="leading" secondItem="dpX-uG-tQR" secondAttribute="leading" constant="20" id="afW-hN-yJM"/>
+                                                <constraint firstItem="l3L-en-Zid" firstAttribute="leading" secondItem="vTH-34-u0W" secondAttribute="trailing" constant="20" id="iBo-XV-YEs"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="foodItemImageView" destination="l3L-en-Zid" id="0BJ-Xe-9Uc"/>
+                                            <outlet property="foodNameLbl" destination="vTH-34-u0W" id="Ma2-f7-TD3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
