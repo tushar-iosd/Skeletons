@@ -18,7 +18,6 @@ class RxListViewController: UIViewController, UITableViewDelegate {
     //Food (Custom class) array in Observable type (Initialised)
     var foodItems = Observable.just([Food.init(name: "Pizza", imageName: "pizza", favItem: true), Food.init(name: "Burger", imageName: "burger", favItem: false),
         Food.init(name: "Dosa", imageName: "dosa", favItem: true),Food.init(name: "Paratha", imageName: "paratha", favItem: false)])
-    
     //Dispose Bag
     let disposeBag = DisposeBag()
     
@@ -28,10 +27,11 @@ class RxListViewController: UIViewController, UITableViewDelegate {
     /* View Life cycle methods*/
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchDataFromAPI()
         // Do any additional setup after loading the view.
         contentTableView.delegate = self
         bindTableWithCustomCell()
-        rxListVM.randomApiCall()
+       // rxListVM.randomApiCall()
     }
     
     /// A simple table view binding example
@@ -43,6 +43,26 @@ class RxListViewController: UIViewController, UITableViewDelegate {
             cell.textLabel?.text = tableViewItem
         }.disposed(by: disposeBag)
     }
+    
+    func fetchDataFromAPI(){
+        ApiClient.getPosts(userId: 1)
+            .observe(on:MainScheduler.instance)
+                    .subscribe(onNext: { postsList in
+                        print("List of posts:", postsList)
+                    }, onError: { error in
+                        switch error {
+                        case ApiError.conflict:
+                            print("Conflict error")
+                        case ApiError.forbidden:
+                            print("Forbidden error")
+                        case ApiError.notFound:
+                            print("Not found error")
+                        default:
+                            print("Unknown error:", error)
+                        }
+                    })
+                    .disposed(by: disposeBag)
+            }
     
     
     /// Binding a table view with data array || selection of table view cell

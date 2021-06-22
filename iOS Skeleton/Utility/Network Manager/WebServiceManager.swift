@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 class WebServiceManager {
    
     private init(){}
@@ -24,7 +26,9 @@ class WebServiceManager {
                 print("Can process the data")
                 do {
                     let data = try JSONDecoder().decode(Array<Comments>.self, from: responseData)
-                    print(data)
+                   
+                  let new =  Observable<Data>.just(responseData).map(Array<Comments>.self)
+                
                 
                 } catch let error {
                     debugPrint(error)
