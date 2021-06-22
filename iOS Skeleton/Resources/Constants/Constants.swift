@@ -22,8 +22,9 @@ struct Constants {
     
     struct RelativeURLPath {
         static let serverURL = "https://jsonplaceholder.typicode.com/"
-        static let randomList = "/posts/1/comments"
+        static let randomList = "posts/1/comments"
         
     }
-    
 }
+
+let noDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Data does not exist"])

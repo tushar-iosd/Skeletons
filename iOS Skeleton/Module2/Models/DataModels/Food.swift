@@ -18,3 +18,19 @@ struct Food {
         self.favItem = favItem
     }
 }
+
+
+struct Comments: Codable {
+    var body: String
+    var email: String
+    var id: Int
+    var name: String
+    var postId: Int
+    private enum CodingKeys: String, CodingKey{
+        case body = "body"
+        case email = "email"
+        case id = "id"
+        case name = "name"
+        case postId = "postId"
+    }
+}

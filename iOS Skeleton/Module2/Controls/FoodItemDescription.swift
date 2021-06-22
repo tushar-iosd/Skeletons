@@ -13,14 +13,11 @@ class FoodItemDescription: UIViewController {
     @IBOutlet weak var selectedFoodLabel: UILabel!
     var labelText: String = ""
     var imageName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedFoodImageView.image = UIImage(named: imageName)
         selectedFoodLabel.text = labelText
         // Do any additional setup after loading the view.
     }
-    
-
-  
-
 }

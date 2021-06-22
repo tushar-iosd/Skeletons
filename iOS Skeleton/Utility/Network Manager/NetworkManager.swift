@@ -25,8 +25,17 @@ class NetworkManager {
     }
     
     func handleResponse(apiResponse: DataResponse<Any,AFError>, completionBlock: @escaping completionClosure) {
-        let result = apiResponse.result
-         print("hbhh")
+        if apiResponse.error == nil {
+            print("Succesfull Data ")
+            if let data = apiResponse.data {
+                completionBlock(true,data,nil)
+            } else {
+                completionBlock(true,nil, noDataError)
+            }
+        } else {
+            completionBlock(false, nil, apiResponse.error as NSError?)
+            print("Error Data ")
+        }
     }
   
 

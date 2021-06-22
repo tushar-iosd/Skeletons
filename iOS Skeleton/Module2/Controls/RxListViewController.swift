@@ -11,13 +11,14 @@ import RxCocoa
 class RxListViewController: UIViewController, UITableViewDelegate {
 
     //RX List view Model
-    let rxListVM = RxListViewModel()
+    let rxListVM = ListDataViewModel()
     
     //String array in Observable type
     let contentItems = Observable.just(["Item1", "Item2", "Items3"])
     //Food (Custom class) array in Observable type (Initialised)
     var foodItems = Observable.just([Food.init(name: "Pizza", imageName: "pizza", favItem: true), Food.init(name: "Burger", imageName: "burger", favItem: false),
         Food.init(name: "Dosa", imageName: "dosa", favItem: true),Food.init(name: "Paratha", imageName: "paratha", favItem: false)])
+    
     //Dispose Bag
     let disposeBag = DisposeBag()
     
@@ -30,6 +31,7 @@ class RxListViewController: UIViewController, UITableViewDelegate {
         // Do any additional setup after loading the view.
         contentTableView.delegate = self
         bindTableWithCustomCell()
+        rxListVM.randomApiCall()
     }
     
     /// A simple table view binding example
@@ -46,7 +48,7 @@ class RxListViewController: UIViewController, UITableViewDelegate {
     /// Binding a table view with data array || selection of table view cell
     func bindTableWithCustomCell(){
         
-        //Bind the Food items
+        //Bind the Food items to table
         foodItems.bind(to: contentTableView.rx
                             .items(cellIdentifier: "contentCell",cellType: FoodItemTableViewCell.self)){
             (tableview, tableViewItem, cell) in
@@ -86,7 +88,4 @@ class RxListViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-}
-
-class RxListViewModel {
 }

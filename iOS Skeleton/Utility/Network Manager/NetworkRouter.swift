@@ -20,7 +20,7 @@ enum NetworkRouter : URLRequestConvertible {
     var relativeURL: String {
         switch self {
         case .RandomList:
-            return Constants.RelativeURLPath.serverURL
+            return Constants.RelativeURLPath.randomList
         }
     }
     
