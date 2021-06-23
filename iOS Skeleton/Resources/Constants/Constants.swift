@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 // MARK:  typeAliases
 typealias JSONDictionary = [String:Any]
 typealias completionClosure = (_ success: Bool, _ data: Data?,_ error: NSError?) -> ()

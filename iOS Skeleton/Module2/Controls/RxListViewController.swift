@@ -9,17 +9,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 class RxListViewController: UIViewController, UITableViewDelegate {
-
+    
     //RX List view Model
     let rxListVM = ListDataViewModel()
     
     //String array in Observable type
     let contentItems = Observable.just(["Item1", "Item2", "Items3"])
+    
     //Food (Custom class) array in Observable type (Initialised)
     var foodItems = Observable.just([Food.init(name: "Pizza", imageName: "pizza", favItem: true), Food.init(name: "Burger", imageName: "burger", favItem: false),
         Food.init(name: "Dosa", imageName: "dosa", favItem: true),Food.init(name: "Paratha", imageName: "paratha", favItem: false)])
+    
     //Dispose Bag
     let disposeBag = DisposeBag()
+    
+    ///Variables
+    var commentList = [Post]()
     
     /* IBOutlets*/
     @IBOutlet weak var contentTableView: UITableView!
@@ -27,7 +32,7 @@ class RxListViewController: UIViewController, UITableViewDelegate {
     /* View Life cycle methods*/
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchDataFromAPI()
+        WebServiceManager.shared.fetchDataFromAPI()
         // Do any additional setup after loading the view.
         contentTableView.delegate = self
         bindTableWithCustomCell()
@@ -43,31 +48,8 @@ class RxListViewController: UIViewController, UITableViewDelegate {
             cell.textLabel?.text = tableViewItem
         }.disposed(by: disposeBag)
     }
-    
-    func fetchDataFromAPI(){
-        ApiClient.getPosts(userId: 1)
-            .observe(on:MainScheduler.instance)
-                    .subscribe(onNext: { postsList in
-                        print("List of posts:", postsList)
-                    }, onError: { error in
-                        switch error {
-                        case ApiError.conflict:
-                            print("Conflict error")
-                        case ApiError.forbidden:
-                            print("Forbidden error")
-                        case ApiError.notFound:
-                            print("Not found error")
-                        default:
-                            print("Unknown error:", error)
-                        }
-                    })
-                    .disposed(by: disposeBag)
-            }
-    
-    
     /// Binding a table view with data array || selection of table view cell
     func bindTableWithCustomCell(){
-        
         //Bind the Food items to table
         foodItems.bind(to: contentTableView.rx
                             .items(cellIdentifier: "contentCell",cellType: FoodItemTableViewCell.self)){
